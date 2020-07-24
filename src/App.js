@@ -1,8 +1,32 @@
 import React from 'react'
 import './App.scss'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { NavBar, ButtonBar } from './components/index'
+import { Home, About, Retention, Growth } from './pages/index'
 
 function App() {
-  return <div>App</div>
+  return (
+    <>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route path="/Retention">
+            <Retention />
+          </Route>
+
+          <Route path="/Growth">
+            <Growth />
+          </Route>
+          <Route path="/About">
+            <About />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </>
+  )
 }
 
 export default App
