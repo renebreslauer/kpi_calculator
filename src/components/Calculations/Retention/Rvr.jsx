@@ -43,12 +43,14 @@ function Rvr() {
         <form id="rvrForm">
           <input type="text" id="num1" placeholder="Total Visitors" />
           <input type="text" id="num2" placeholder="Returning Visitors" />
-          <input type="text" id="result" value={currentResult} readOnly />
+          <p id="result">{currentResult}</p>
           <button onClick={Divide}>Submit</button>
           <button onClick={Clear}>Clear</button>
         </form>
       </div>
-      <div className="section_wrapper_contents_result"></div>
+      <div className="section_wrapper_contents_result">
+        <p>{currentResult}</p>
+      </div>
     </div>
   )
 }

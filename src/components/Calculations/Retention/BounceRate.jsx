@@ -6,11 +6,11 @@ function BounceRate() {
   const [clear, setClear] = useState(false)
 
   useEffect(() => {
-    document.querySelector('#result').value = ''
+    document.querySelector('#bounceResult').value = ''
   }, [])
 
   useEffect(() => {
-    if (clear) document.querySelector('#result').value = ''
+    if (clear) document.querySelector('#bounceResult').value = ''
   })
 
   const Divide = (e) => {
@@ -34,7 +34,7 @@ function BounceRate() {
   }
 
   useEffect(() => {
-    document.querySelector('#result').value = ''
+    document.querySelector('#bounceResult').value = ''
   }, [])
 
   return (
@@ -43,12 +43,14 @@ function BounceRate() {
         <form id="BounceRateForm">
           <input type="text" id="num1" placeholder="Total Visitors" />
           <input type="text" id="num2" placeholder="Visitors Who Bounce" />
-          <input type="text" id="result" value={currentResult} readOnly />
+          <p id="bounceResult">{currentResult}</p>
           <button onClick={Divide}>Submit</button>
           <button onClick={Clear}>Clear</button>
         </form>
       </div>
-      <div className="section_wrapper_contents_result"></div>
+      <div className="section_wrapper_contents_result">
+        <p>{currentResult}</p>
+      </div>
     </div>
   )
 }

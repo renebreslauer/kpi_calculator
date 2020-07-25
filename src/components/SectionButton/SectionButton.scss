@@ -1,9 +1,28 @@
 .SectionButtons {
-  width: 800px;
+  width: 1200px;
   height: 80vh;
   background-color: lightgray;
 }
 
+.SectionButton-list-item {
+  background-color: white;
+  height: 50px;
+  width: 100px;
+  border: none;
+}
+.SectionButton-list {
+  background-color: white;
+}
+
+.SectionButton-list-item:focus {
+  outline: none;
+  cursor: pointer;
+}
+
+.SectionButton-list-item:hover {
+  cursor: pointer;
+}
+
 .SectionButton-list-active {
-  background-color: blue;
+  background-color: lightgrey;
 }
