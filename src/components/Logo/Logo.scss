@@ -1,0 +1,33 @@
+.logo_wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  height: 75px;
+  width: 100px;
+}
+.logo_col_2 {
+  display: grid;
+  grid-template-rows: auto auto;
+  margin-left: 5px;
+}
+.kpi_span {
+  font-size: 3rem;
+  font-family: 'Prompt', sans-serif;
+  color: white;
+}
+
+.calc_span {
+  display: flex;
+  align-items: baseline;
+  font-size: 1.8rem;
+  font-family: 'Prompt', sans-serif;
+  color: white;
+  margin-top: 8px;
+}
+
+.by_activator_span {
+  margin-top: -19px;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #49bfe3;
+}

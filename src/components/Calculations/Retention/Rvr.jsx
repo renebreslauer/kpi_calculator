@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../Calculations.scss'
 import { ResponsiveBar } from '@nivo/bar'
 import { Wave } from '../../index'
+import { Result } from '../index'
 
 function Rvr(props) {
   const [currentResult, setCurrentResult] = useState('')
@@ -37,24 +38,26 @@ function Rvr(props) {
 
   useEffect(() => {
     document.querySelector('#result').value = ''
-    document.querySelector('#message').value = ''
   }, [])
 
   let { resultMessage } = props
-  if (currentResult > '25%') {
-    resultMessage = 'great job'
+  if (parseInt(currentResult) >= 100) {
+    resultMessage = <Result header="Exceptional" message="Exceptional job" />
   }
-  if (currentResult >= '40%') {
-    resultMessage = 'Exceptional!'
+  if (parseInt(currentResult) >= 40) {
+    resultMessage = <Result header="Exceptional" message="Exceptional job" />
   }
-  if (currentResult <= '25%') {
-    resultMessage = "There's some room for improvement"
+  if (parseInt(currentResult) <= 39 && parseInt(currentResult) >= 25) {
+    resultMessage = <Result header="Good" message="Good job" />
   }
-  if (currentResult >= '100%') {
-    resultMessage = 'Exceptional!'
+  if (parseInt(currentResult) <= 24 && parseInt(currentResult) > 0) {
+    resultMessage = <Result header="Average" message="Average job" />
   }
-  if (currentResult <= '0%') {
-    resultMessage = 'Enter your metrics to see your results.'
+  if (parseInt(currentResult) <= 0) {
+    resultMessage = <Result message="Enter your metrics to see your results" />
+  }
+  if (parseInt(currentResult) == null || NaN) {
+    resultMessage = <Result message="Enter your metrics to see your results" />
   }
 
   let newResult = parseFloat(currentResult)
@@ -78,128 +81,143 @@ function Rvr(props) {
 
   return (
     <>
-      <div className="section_wrapper">
-        <div className="section_wrapper_contents_input">
-          <form id="rvrForm" className="calculation_form">
-            <label>Total Visitors</label>
-            <input
-              type="text"
-              id="num1"
-              placeholder="Total Visitors"
-              autocomplet="off"
-            />
-            <label>Returning Visitors</label>
-            <input
-              type="text"
-              id="num2"
-              placeholder="Returning Visitors"
-              autocomplet="off"
-            />
-            <div className="form_buttons">
-              <button onClick={Divide} className="submit_button">
-                Submit
-              </button>
-              <button onClick={Clear} className="clear_button">
-                Clear
-              </button>
-            </div>
-          </form>
-        </div>
-        <div className="section_wrapper_contents_result">
-          <div className="chart_container">
-            <ResponsiveBar
-              data={data}
-              keys={['Percentage']}
-              indexBy="rvr"
-              margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-              padding={0.3}
-              defs={[
-                {
-                  id: 'dots',
-                  type: 'patternDots',
-                  background: 'inherit',
-                  color: '#38bcb2',
-                  size: 4,
-                  padding: 1,
-                  stagger: true,
-                },
-                {
-                  id: 'lines',
-                  type: 'patternLines',
-                  background: 'inherit',
-                  color: '#fffff',
-                  rotation: -45,
-                  lineWidth: 6,
-                  spacing: 10,
-                },
-              ]}
-              fill={[
-                {
-                  match: {
-                    id: 'fries',
+      <div className="accordion_content">
+        <h2>Rate of Returning Visitors</h2>
+
+        <div className="section_wrapper">
+          <div className="section_wrapper_contents_input">
+            <form id="rvrForm" className="calculation_form">
+              <label>Total Visitors</label>
+              <input
+                type="text"
+                id="num1"
+                placeholder="Total Visitors"
+                autocomplet="off"
+              />
+              <label>Returning Visitors</label>
+              <input
+                type="text"
+                id="num2"
+                placeholder="Returning Visitors"
+                autocomplet="off"
+              />
+              <div className="form_buttons">
+                <button onClick={Divide} className="submit_button">
+                  Submit
+                </button>
+                <button onClick={Clear} className="clear_button">
+                  Clear
+                </button>
+              </div>
+            </form>
+          </div>
+          <div className="section_wrapper_contents_result">
+            <div className="chart_container">
+              <ResponsiveBar
+                data={data}
+                keys={['Percentage']}
+                indexBy="rvr"
+                margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+                padding={0.3}
+                defs={[
+                  {
+                    id: 'dots',
+                    type: 'patternDots',
+                    background: 'inherit',
+                    color: '#38bcb2',
+                    size: 4,
+                    padding: 1,
+                    stagger: true,
                   },
-                  id: 'dots',
-                },
-                {
-                  match: {
-                    id: 'sandwich',
+                  {
+                    id: 'lines',
+                    type: 'patternLines',
+                    background: 'inherit',
+                    color: '#fffff',
+                    rotation: -45,
+                    lineWidth: 6,
+                    spacing: 10,
                   },
-                  id: 'lines',
-                },
-              ]}
-              borderColor={{ from: 'color', modifiers: [['brighter', 1.6]] }}
-              axisTop={null}
-              axisRight={null}
-              axisBottom={{
-                tickSize: 5,
-                tickPadding: 5,
-                tickRotation: 0,
-                legend: 'percentageReturn',
-                legendPosition: 'middle',
-                legendOffset: 32,
-              }}
-              axisLeft={{
-                tickSize: 5,
-                tickPadding: 5,
-                tickRotation: 0,
-                legend: 'Rate of Returning Visitors',
-                legendPosition: 'middle',
-                legendOffset: -40,
-              }}
-              labelSkipWidth={12}
-              labelSkipHeight={12}
-              labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
-              legends={[
-                {
-                  dataFrom: 'keys',
-                  anchor: 'bottom-right',
-                  direction: 'column',
-                  justify: false,
-                  translateX: 120,
-                  translateY: 0,
-                  itemsSpacing: 2,
-                  itemWidth: 100,
-                  itemHeight: 20,
-                  itemDirection: 'left-to-right',
-                  itemOpacity: 0.85,
-                  symbolSize: 20,
-                  effects: [
-                    {
-                      on: 'hover',
-                      style: {
-                        itemOpacity: 1,
-                      },
+                ]}
+                fill={[
+                  {
+                    match: {
+                      id: 'fries',
                     },
-                  ],
-                },
-              ]}
-              animate={true}
-              motionStiffness={90}
-              motionDamping={15}
-            />
+                    id: 'dots',
+                  },
+                  {
+                    match: {
+                      id: 'sandwich',
+                    },
+                    id: 'lines',
+                  },
+                ]}
+                borderColor={{ from: 'color', modifiers: [['brighter', 1.6]] }}
+                axisTop={null}
+                axisRight={null}
+                axisBottom={{
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  legend: '',
+                  legendPosition: 'middle',
+                  legendOffset: 32,
+                }}
+                axisLeft={{
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  legend: 'Rate of Returning Visitors',
+                  legendPosition: 'middle',
+                  legendOffset: -40,
+                }}
+                labelSkipWidth={12}
+                labelSkipHeight={12}
+                labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
+                legends={[
+                  {
+                    dataFrom: 'keys',
+                    anchor: 'bottom-right',
+                    direction: 'column',
+                    justify: false,
+                    translateX: 120,
+                    translateY: 0,
+                    itemsSpacing: 2,
+                    itemWidth: 100,
+                    itemHeight: 20,
+                    itemDirection: 'left-to-right',
+                    itemOpacity: 0.85,
+                    symbolSize: 20,
+                    effects: [
+                      {
+                        on: 'hover',
+                        style: {
+                          itemOpacity: 1,
+                        },
+                      },
+                    ],
+                  },
+                ]}
+                animate={true}
+                motionStiffness={90}
+                motionDamping={15}
+              />
+            </div>
+          </div>
+          <div className="result_container">
+            <h3>Your Result</h3>
+            <p id="result">{currentResult}</p>
+            {resultMessage}
           </div>
         </div>
-        <div className="section_wrapper_contents_info">
+      </div>
+      <div className="wave_container">
+        <Wave />
+      </div>
+
+      <div className="section_wrapper_contents_info">
+        <div className="section_wrapper_contents_info_col">
           <h3>What is RVR?</h3>
           <p>
             Simply put, your RVR is how many repeat visitors you have. It is
@@ -208,6 +226,8 @@ function Rvr(props) {
             overall content strategy is going. Return customers are 5x more
             valuable than new ones, so a high RVR % is huge.
           </p>
+        </div>
+        <div className="section_wrapper_contents_info_col">
           <h3>What does it indicate?</h3>
           <p>
             Is your content engaging enough? Do customers want to buy more of
@@ -215,24 +235,10 @@ function Rvr(props) {
             across verticals.
           </p>
           <p>Rate of Returning Visitors</p>
+        </div>
+        <div className="section_wrapper_contents_info_col">
           <h3>Benchmark</h3>
           <p>Over 25% is ideal. If you’re over 40%, you’re killing it.</p>
-        </div>
-      </div>
-      <div className="wave_container">
-        <Wave />
-      </div>
-      <h3 class="result_header">Your Result</h3>
-
-      <div className="result_container">
-        <div className="result_container_col_1">
-          <p id="result">{currentResult}</p>
-        </div>
-
-        <div className="result_container_col_2">
-          <div className="result_message" id="message">
-            {resultMessage}
-          </div>
         </div>
       </div>
     </>

@@ -8,21 +8,26 @@ function Retention() {
     <>
       <div className="section_wrapper">
         <Accordion allowMultipleOpen>
-          <div label="What is Retention?" isOpen class="accordion_label">
-            <p>
-              These KPI's are all about retaining customers or figuring out why
-              customers are abandoning your funnel.
-            </p>
+          <div label=" " isOpen class="accordion_label">
+            <div className="accordion_content">
+              <h2>What is Retention?</h2>
+              <p>
+                These KPI's are all about retaining customers or figuring out
+                why customers are abandoning your funnel.
+              </p>
+            </div>
           </div>
           <div label="Rate of Returning" isOpen class="accordion_label">
-            <h3>Rate of Returning Visitors</h3>
             <Rvr />
           </div>
           <div label="Bounce Rate">
-            <h3>Bounce Rate</h3>
-            <BounceRate />
+            <div className="accordion_content">
+              <h2>Bounce Rate</h2>
+              <BounceRate />
+            </div>
           </div>
           <div label="Customer Churn Rate"></div>
+
           <div label="Net Promoter Score (NPS)"></div>
         </Accordion>
       </div>
