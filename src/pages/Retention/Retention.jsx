@@ -5,20 +5,23 @@ import { Accordion } from '../../components/index'
 
 function Retention() {
   return (
-    <div className="section_wrapper">
-      <h1>Retention</h1>
-
-      <Accordion allowMultipleOpen>
-        <div label="Rate of Returning">
-          <h3>Rate of Returning Visitors</h3>
-          <Rvr />
-        </div>
-        <div label="bounce Rate">
-          <h3>Bounce Rate</h3>
-          <BounceRate />
-        </div>
-      </Accordion>
-    </div>
+    <>
+      <div className="section_wrapper">
+        <Accordion allowMultipleOpen>
+          <div label="What is Retention?" isOpen class="accordion_label"></div>
+          <div label="Rate of Returning" isOpen class="accordion_label">
+            <h3>Rate of Returning Visitors</h3>
+            <Rvr />
+          </div>
+          <div label="Bounce Rate">
+            <h3>Bounce Rate</h3>
+            <BounceRate />
+          </div>
+          <div label="Customer Churn Rate"></div>
+          <div label="Net Promoter Score (NPS)"></div>
+        </Accordion>
+      </div>
+    </>
   )
 }
 

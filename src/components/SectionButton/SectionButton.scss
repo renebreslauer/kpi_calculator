@@ -1,17 +1,17 @@
 .SectionButtons {
   width: 1200px;
-  height: 80vh;
-  background-color: lightgray;
+  background-color: none;
 }
 
 .SectionButton-list-item {
-  background-color: white;
+  background-color: lightgrey;
   height: 50px;
-  width: 100px;
+  width: 150px;
   border: none;
+  border-radius: 10px 10px 0 0;
 }
 .SectionButton-list {
-  background-color: white;
+  background-color: none;
 }
 
 .SectionButton-list-item:focus {
@@ -24,5 +24,6 @@
 }
 
 .SectionButton-list-active {
-  background-color: lightgrey;
+  background-color: white;
+  box-shadow: 1px 1px 2px lightgrey;
 }

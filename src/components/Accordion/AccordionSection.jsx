@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import './Accordion.scss'
 
 class AccordionSection extends Component {
   static propTypes = {
@@ -20,31 +21,16 @@ class AccordionSection extends Component {
     } = this
 
     return (
-      <div
-        style={{
-          background: isOpen ? '#fae042' : '#6db65b',
-          border: '1px solid #008f68',
-          padding: '5px 10px',
-        }}
-      >
-        <div onClick={onClick} style={{ cursor: 'pointer' }}>
+      <div className="accordion_section">
+        <div onClick={onClick} className="accordion_label">
           {label}
-          <div style={{ float: 'right' }}>
-            {!isOpen && <span>&#9650;</span>}
-            {isOpen && <span>&#9660;</span>}
+          <div style={{ float: 'left' }}>
+            {!isOpen && <span>&#43;</span>}
+            {isOpen && <span>&#8722;</span>}
           </div>
         </div>
         {isOpen && (
-          <div
-            style={{
-              background: '#6db65b',
-              border: '2px solid #008f68',
-              marginTop: 10,
-              padding: '10px 20px',
-            }}
-          >
-            {this.props.children}
-          </div>
+          <div className="accordion_section_open">{this.props.children}</div>
         )}
       </div>
     )
