@@ -1,16 +1,25 @@
+@import '../../App.scss';
+
 .SectionButtons {
   width: 1200px;
-  background-color: none;
+  background: none;
 }
 
 .SectionButton-list-item {
-  background-color: lightgrey;
+  background: #6930c3;
   height: 50px;
   width: 150px;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0;
   border-radius: 10px 10px 0 0;
   transition: 0.2s ease-in-out;
   margin-right: 5px;
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 .SectionButton-list {
   background-color: none;
@@ -23,8 +32,14 @@
 
 .SectionButton-list-item:hover {
   cursor: pointer;
+  color: #72efdd;
+  background-color: rgba(105, 48, 195, 0.4);
 }
 
 .SectionButton-list-active {
   background-color: white;
+  color: #7400b8;
+  &:hover {
+    background-color: white;
+  }
 }

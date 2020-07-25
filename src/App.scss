@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700;800&display=swap');
 * {
   margin: 0;
   font-size: 16px;
@@ -7,16 +7,24 @@
 
 p {
   font-size: 0.8rem;
+  color: white;
 }
 h3 {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+  color: #80ffdb;
+  letter-spacing: 0.2rem;
+  font-weight: 800;
+  font-family: 'Prompt', sans-serif;
 }
 body {
-  background: rgb(143, 247, 242);
+  background: rgb(116, 0, 184);
   background: linear-gradient(
-    124deg,
-    rgba(143, 247, 242, 1) 0%,
-    rgba(221, 241, 128, 1) 100%
+    90deg,
+    rgba(116, 0, 184, 1) 0%,
+    rgba(94, 96, 206, 1) 50%,
+    rgba(116, 0, 184, 1) 100%
   );
+  background-position: fixed;
   font-family: 'PT Sans', sans-serif;
 }

@@ -24,7 +24,7 @@ class AccordionSection extends Component {
       <div className="accordion_section">
         <div onClick={onClick} className="accordion_label">
           {label}
-          <div style={{ float: 'left' }}>
+          <div className="accordion_label_text">
             {!isOpen && <span>&#43;</span>}
             {isOpen && <span>&#8722;</span>}
           </div>

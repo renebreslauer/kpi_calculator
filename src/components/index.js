@@ -1,5 +1,5 @@
 export { default as SectionButton } from './SectionButton/SectionButton'
 export { default as SectionButtons } from './SectionButton/SectionButtons'
-export { default as ButtonBar } from './ButtonBar/ButtonBar'
 export { default as NavBar } from './Navbar/Navbar'
 export { default as Accordion } from './Accordion/Accordion'
+export { default as Wave } from './Wave/Wave'

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../Calculations.scss'
 import { ResponsiveBar } from '@nivo/bar'
+import { Wave } from '../../index'
 
 function Rvr(props) {
   const [currentResult, setCurrentResult] = useState('')
@@ -53,57 +54,65 @@ function Rvr(props) {
     resultMessage = 'Exceptional!'
   }
   if (currentResult <= '0%') {
-    resultMessage = null
+    resultMessage = 'Enter your metrics to see your results.'
   }
 
   let newResult = parseFloat(currentResult)
   let data = [
     {
       rvr: 'Exceptional',
-      percentageReturn: 40,
-      percentageReturnColor: 'hsl(330, 70%, 50%)',
+      Percentage: 40,
+      PercentageColor: 'hsl(330, 70%, 50%)',
     },
     {
       rvr: 'Good',
-      percentageReturn: 25,
-      percentageReturnColor: 'hsl(79, 70%, 50%)',
+      Percentage: 25,
+      PercentageColor: 'hsl(79, 70%, 50%)',
     },
     {
       rvr: 'Your Results',
-      percentageReturn: newResult,
-      percentageReturnColor: 'hsl(267, 70%, 50%)',
+      Percentage: newResult,
+      PercentageColor: 'hsl(267, 70%, 50%)',
     },
   ]
 
   return (
-    <div className="section_wrapper">
-      <div className="section_wrapper_contents_input">
-        <form id="rvrForm" className="calculation_form">
-          <label>Total Visitors</label>
-          <input type="text" id="num1" placeholder="Total Visitors" />
-          <label>Returning Visitors</label>
-          <input type="text" id="num2" placeholder="Returning Visitors" />
-          <div className="form_buttons">
-            <button onClick={Divide}>Submit</button>
-            <button onClick={Clear}>Clear</button>
-          </div>
-        </form>
-      </div>
-      <div className="section_wrapper_contents_result">
-        <div className="result_container" id="resultContainer">
-          <p>Your Result</p>
-          <p id="result">{currentResult}</p>
-          <div className="result_message" id="message">
-            {resultMessage}
-          </div>
+    <>
+      <div className="section_wrapper">
+        <div className="section_wrapper_contents_input">
+          <form id="rvrForm" className="calculation_form">
+            <label>Total Visitors</label>
+            <input
+              type="text"
+              id="num1"
+              placeholder="Total Visitors"
+              autocomplet="off"
+            />
+            <label>Returning Visitors</label>
+            <input
+              type="text"
+              id="num2"
+              placeholder="Returning Visitors"
+              autocomplet="off"
+            />
+            <div className="form_buttons">
+              <button onClick={Divide} className="submit_button">
+                Submit
+              </button>
+              <button onClick={Clear} className="clear_button">
+                Clear
+              </button>
+            </div>
+          </form>
+        </div>
+        <div className="section_wrapper_contents_result">
           <div className="chart_container">
             <ResponsiveBar
               data={data}
-              keys={['percentageReturn']}
+              keys={['Percentage']}
               indexBy="rvr"
               margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
               padding={0.3}
-              colors={{ scheme: 'nivo' }}
               defs={[
                 {
                   id: 'dots',
@@ -118,7 +127,7 @@ function Rvr(props) {
                   id: 'lines',
                   type: 'patternLines',
                   background: 'inherit',
-                  color: '#eed312',
+                  color: '#fffff',
                   rotation: -45,
                   lineWidth: 6,
                   spacing: 10,
@@ -138,7 +147,7 @@ function Rvr(props) {
                   id: 'lines',
                 },
               ]}
-              borderColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
+              borderColor={{ from: 'color', modifiers: [['brighter', 1.6]] }}
               axisTop={null}
               axisRight={null}
               axisBottom={{
@@ -190,27 +199,43 @@ function Rvr(props) {
             />
           </div>
         </div>
+        <div className="section_wrapper_contents_info">
+          <h3>What is RVR?</h3>
+          <p>
+            Simply put, your RVR is how many repeat visitors you have. It is
+            definitely one of those “hidden” KPIs that a ton of marketers like
+            to ignore. But, honestly, RVR can give you a good look at how your
+            overall content strategy is going. Return customers are 5x more
+            valuable than new ones, so a high RVR % is huge.
+          </p>
+          <h3>What does it indicate?</h3>
+          <p>
+            Is your content engaging enough? Do customers want to buy more of
+            your products? Returning visitors helps you figure out your strategy
+            across verticals.
+          </p>
+          <p>Rate of Returning Visitors</p>
+          <h3>Benchmark</h3>
+          <p>Over 25% is ideal. If you’re over 40%, you’re killing it.</p>
+        </div>
       </div>
-      <div className="section_wrapper_contents_info">
-        <h3>What is RVR?</h3>
-        <p>
-          Simply put, your RVR is how many repeat visitors you have. It is
-          definitely one of those “hidden” KPIs that a ton of marketers like to
-          ignore. But, honestly, RVR can give you a good look at how your
-          overall content strategy is going. Return customers are 5x more
-          valuable than new ones, so a high RVR % is huge.
-        </p>
-        <h3>What does it indicate?</h3>
-        <p>
-          Is your content engaging enough? Do customers want to buy more of your
-          products? Returning visitors helps you figure out your strategy across
-          verticals.
-        </p>
-        <p>Rate of Returning Visitors</p>
-        <h3>Benchmark</h3>
-        <p>Over 25% is ideal. If you’re over 40%, you’re killing it.</p>
+      <div className="wave_container">
+        <Wave />
       </div>
-    </div>
+      <h3 class="result_header">Your Result</h3>
+
+      <div className="result_container">
+        <div className="result_container_col_1">
+          <p id="result">{currentResult}</p>
+        </div>
+
+        <div className="result_container_col_2">
+          <div className="result_message" id="message">
+            {resultMessage}
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
