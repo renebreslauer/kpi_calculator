@@ -1,10 +1,11 @@
 .section_wrapper {
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 30% 40% 30%;
   &_contents_result {
     display: flex;
     flex-direction: column;
     padding: 0 20px;
+    align-items: center;
   }
   &_contents_input {
     display: flex;
@@ -20,6 +21,10 @@
   label {
     margin: 20px 0;
   }
+  input {
+    text-align: center;
+    width: 120px;
+  }
 }
 
 .form_buttons {
@@ -28,9 +33,15 @@
     border: none;
     margin: 20px 10px;
     padding: 5px 10px;
+
     cursor: pointer;
     &:focus {
       outline: none;
     }
   }
+}
+
+.chart_container {
+  height: 500px;
+  width: 500px;
 }

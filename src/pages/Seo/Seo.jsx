@@ -1,14 +1,14 @@
 import React from 'react'
-import './Retention.scss'
+import './Seo.scss'
 import { Rvr, BounceRate } from '../../components/Calculations/index'
 import { Accordion } from '../../components/index'
 
-function Retention() {
+function Seo() {
   return (
     <>
       <div className="section_wrapper">
         <Accordion allowMultipleOpen>
-          <div label="What is Retention?" isOpen class="accordion_label">
+          <div label="What is Seo?" isOpen class="accordion_label">
             <p>
               These KPI's are all about retaining customers or figuring out why
               customers are abandoning your funnel.
@@ -30,4 +30,4 @@ function Retention() {
   )
 }
 
-export default Retention
+export default Seo

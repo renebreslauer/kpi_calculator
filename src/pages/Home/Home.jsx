@@ -1,7 +1,7 @@
 import React from 'react'
 import './Home.scss'
 import { SectionButtons } from '../../components/index'
-import { Intro, Retention, Growth } from '../index'
+import { Intro, Retention, Growth, Ads, Seo, Social } from '../index'
 
 function Home() {
   return (
@@ -12,6 +12,15 @@ function Home() {
         </div>
         <div label="Growth">
           <Growth />
+        </div>
+        <div label="Ads">
+          <Ads />
+        </div>
+        <div label="Seo">
+          <Seo />
+        </div>
+        <div label="Social">
+          <Social />
         </div>
       </SectionButtons>
     </div>
