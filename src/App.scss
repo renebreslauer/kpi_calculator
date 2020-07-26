@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700;800&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 * {
   margin: 0;
   font-size: 16px;
@@ -40,4 +46,53 @@ body {
 
 .accordion_content {
   padding: 20px;
+}
+
+// Media
+
+@media screen and (max-width: 1300px) {
+  .SectionButtons {
+    width: 80vw;
+  }
+  .accordion_section {
+    width: 80vw;
+  }
+  .nav_wrapper {
+    width: 80vw;
+  }
+  .footer_wrapper {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .accordion_content {
+    h2 {
+      text-align: center;
+    }
+  }
+  .SectionButton-list-item {
+    width: 12vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .SectionButtons {
+    width: 100vw;
+  }
+  .SectionButton-list-item {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .accordion_section {
+    width: 100vw;
+  }
+  .nav_wrapper {
+    width: 100%;
+    padding: 20px 20px 0 20px;
+  }
+  .footer_wrapper {
+    width: 100%;
+    padding: 0 20px 20px 20px;
+  }
 }

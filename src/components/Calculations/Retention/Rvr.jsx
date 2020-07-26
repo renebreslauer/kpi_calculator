@@ -21,8 +21,8 @@ function Rvr(props) {
     if (clear) setClear(false)
     let currentNum1 = document.querySelector('#num1').value
     let currentNum2 = document.querySelector('#num2').value
-    if (currentNum1 == '') return
-    if (currentNum2 == '') return
+    if (currentNum1 === '') return
+    if (currentNum2 === '') return
     let result = parseInt(currentNum2) / parseInt(currentNum1)
     setCurrentResult(Math.floor(result * 100) + '%')
     document.querySelector('#num1').value = currentNum1

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './Accordion.scss'
+import { NavLink } from 'react-router-dom'
 
 class AccordionSection extends Component {
   static propTypes = {
@@ -24,6 +25,7 @@ class AccordionSection extends Component {
       <div className="accordion_section">
         <div onClick={onClick} className="accordion_label">
           {label}
+
           <div className="accordion_label_text">
             {!isOpen && <span>&#43;</span>}
             {isOpen && <span>&#8722;</span>}

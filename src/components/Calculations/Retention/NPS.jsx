@@ -4,46 +4,53 @@ import { Wave } from '../../index'
 import { ResponsiveBar } from '@nivo/bar'
 import '../Calculations.scss'
 
-function BounceRate(props) {
+function NPS(props) {
   const [currentResult, setCurrentResult] = useState('')
   const [clear, setClear] = useState(false)
 
   useEffect(() => {
-    document.querySelector('#bounceResult').value = ''
+    document.querySelector('#NPSResult').value = ''
   }, [])
 
   useEffect(() => {
-    if (clear) document.querySelector('#bounceResult').value = ''
+    if (clear) document.querySelector('#NPSResult').value = ''
   })
 
   const Divide = (e) => {
     e.preventDefault()
     if (clear) setClear(false)
-    let currentNum1 = document.querySelector('#num1Bounce').value
-    let currentNum2 = document.querySelector('#num2Bounce').value
+    let currentNum1 = document.querySelector('#num1NPS').value
+    let currentNum3 = document.querySelector('#num3NPS').value
     if (currentNum1 === '') return
-    if (currentNum2 === '') return
-    let result = parseInt(currentNum2) / parseInt(currentNum1)
+    if (currentNum3 === '') return
+    let result =
+      parseInt(currentNum1) / (parseInt(currentNum1) + parseInt(currentNum3)) -
+      parseInt(currentNum3) / (parseInt(currentNum1) + parseInt(currentNum3))
     setCurrentResult(Math.floor(result * 100) + '%')
-    document.querySelector('#num1Bounce').value = currentNum1
-    document.querySelector('#num2Bounce').value = currentNum2
+    document.querySelector('#num1NPS').value = currentNum1
+    document.querySelector('#num3NPS').value = currentNum3
   }
 
   const Clear = (e) => {
     e.preventDefault()
-    document.querySelector('#bounceForm').reset()
+    document.querySelector('#NPSForm').reset()
     setClear(true)
     setCurrentResult('')
   }
 
   useEffect(() => {
-    document.querySelector('#bounceResult').value = ''
+    document.querySelector('#NPSResult').value = ''
   }, [])
 
   let { resultMessage } = props
 
-  if (parseInt(currentResult) >= 0) {
+  if (parseInt(currentResult) >= 0 && parseInt(currentResult) <= 7) {
     resultMessage = <Result header="Exceptional" message="Exceptional job" />
+  }
+  if (parseInt(currentResult) > 7) {
+    resultMessage = (
+      <Result header="Below Average" message="Room for improvement" />
+    )
   }
 
   let newResult = parseFloat(currentResult)
@@ -68,23 +75,30 @@ function BounceRate(props) {
   return (
     <>
       <div className="accordion_content">
-        <h2>Bounce Rate</h2>
+        <h2>Net Promoter Score</h2>
 
         <div className="section_wrapper">
           <div className="section_wrapper_contents_input">
-            <form id="bounceForm" className="calculation_form">
-              <label>Total Visitors</label>
+            <form id="NPSForm" className="calculation_form">
+              <label>The Number of respondents who score 9-10</label>
               <input
                 type="text"
-                id="num1Bounce"
-                placeholder="Total Visitors"
+                id="num1NPS"
+                placeholder="Promoters"
                 autocomplet="off"
               />
-              <label>Visitors Who Bounce</label>
+              <label>The number of respondents who score 7-8</label>
               <input
                 type="text"
-                id="num2Bounce"
-                placeholder="Visitors Who Bounce"
+                id="num2NPS"
+                placeholder="Passives"
+                autocomplet="off"
+              />
+              <label>The number of respondents who score 0-6</label>
+              <input
+                type="text"
+                id="num3NPS"
+                placeholder="Detractors"
                 autocomplet="off"
               />
               <div className="form_buttons">
@@ -193,7 +207,7 @@ function BounceRate(props) {
           </div>
           <div className="result_container">
             <h3>Your Result</h3>
-            <p id="bounceResult">{currentResult}</p>
+            <p id="NPSResult">{currentResult}</p>
             {resultMessage}
           </div>
         </div>
@@ -203,55 +217,40 @@ function BounceRate(props) {
         <Wave />
       </div>
 
-      <div className="section_wrapper_contents_info_5">
-        <div className="section_wrapper_contents_info_row_1">
-          <div className="section_wrapper_contents_info_col">
-            <h3>What is Bounce Rate?</h3>
-            <p>
-              Google defines bounce rate as “a single page session on your
-              site“. Bounce rate is a measurement of how many people are viewing
-              one “page” (landing page, site, blog content, etc.) and then
-              leaving.
-            </p>
-          </div>
-          <div className="section_wrapper_contents_info_col">
-            <h3>What does it indicate?</h3>
-            <p>
-              Stopping conversion loss. Also, bounce rate can give you some key
-              insights into how you’re layering your site content. If your
-              prospects are leaving after one page, you need to figure out why.
-            </p>
-          </div>
-          <div className="section_wrapper_contents_info_col">
-            <h3>Benchmark</h3>
-            <p>Depends on the content type.</p>
-          </div>
+      <div className="section_wrapper_contents_info_4">
+        <div className="section_wrapper_contents_info_col">
+          <h3>What is Churn Rate?</h3>
+          <p>
+            Your churn rate is the percentage of your customers who cancel (or
+            fail to renew) their subscription with your service.
+          </p>
         </div>
-        <div className="section_wrapper_contents_info_row_2">
-          <div className="section_wrapper_contents_info_col">
-            <h3>What's the difference between bounce rate and RVR?</h3>
-            <p>
-              Your bounce rate is how many people leave after visiting a single
-              action on your website. RVR doesn’t take how many pages they
-              viewed before leaving into account.
-            </p>
-          </div>
-          <div className="section_wrapper_contents_info_col">
-            <h3>A Poor Bounce Rate</h3>
-            <p>
-              Also, important side note: A high bounce rate isn’t necessarily
-              indicative of poor customer experience. In fact, blogs with high
-              bounce rates are typically offering a good experience (they
-              probably got the information they came for.) However, even on
-              blogs, high bounce rates should be investigated. Try fooling
-              around with your CTAs, create some killer pillar content, or think
-              about your blogs overall architecture.
-            </p>
-          </div>
+        <div className="section_wrapper_contents_info_col">
+          <h3>What does it indicate?</h3>
+          <p>
+            It's good for SaaS (or other sub-based) businesses looking to make a
+            profit. If customers are canceling their sub before they hit your
+            typical customer acquisition cost (CAC,) you’ve got a big problem.
+          </p>
+        </div>
+
+        <div className="section_wrapper_contents_info_col">
+          <h3>Why worry about it?</h3>
+          <p>
+            Churn rate is the perfect spot to start digging around. You need to
+            figure out why customers are leaving. To do this, you can start
+            sending out surveys, looking into customer particulars, analyzing
+            your products, and reviewing competitors in your space. Churn rate
+            can also give you some critical insights into overall market trends.
+          </p>
+        </div>
+        <div className="section_wrapper_contents_info_col">
+          <h3>Benchmark</h3>
+          <p>1 - 7% monthly</p>
         </div>
       </div>
     </>
   )
 }
 
-export default BounceRate
+export default NPS

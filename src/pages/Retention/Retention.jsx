@@ -1,6 +1,13 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './Retention.scss'
-import { Rvr, BounceRate } from '../../components/Calculations/index'
+import {
+  Intro,
+  Rvr,
+  BounceRate,
+  ChurnRate,
+  NPS,
+} from '../../components/Calculations/index'
 import { Accordion } from '../../components/index'
 
 function Retention() {
@@ -9,26 +16,20 @@ function Retention() {
       <div className="section_wrapper">
         <Accordion allowMultipleOpen>
           <div label=" " isOpen class="accordion_label">
-            <div className="accordion_content">
-              <h2>What is Retention?</h2>
-              <p>
-                These KPI's are all about retaining customers or figuring out
-                why customers are abandoning your funnel.
-              </p>
-            </div>
+            <Intro />
           </div>
           <div label="Rate of Returning" isOpen class="accordion_label">
             <Rvr />
           </div>
           <div label="Bounce Rate">
-            <div className="accordion_content">
-              <h2>Bounce Rate</h2>
-              <BounceRate />
-            </div>
+            <BounceRate />
           </div>
-          <div label="Customer Churn Rate"></div>
-
-          <div label="Net Promoter Score (NPS)"></div>
+          <div label="Customer Churn Rate">
+            <ChurnRate />
+          </div>
+          <div label="Net Promoter Score (NPS)">
+            <NPS />
+          </div>
         </Accordion>
       </div>
     </>

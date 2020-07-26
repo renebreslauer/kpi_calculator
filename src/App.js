@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { NavBar } from './components/index'
+import { NavBar, Footer } from './components/index'
 import { Home, About, Retention, Growth } from './pages/index'
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </>
   )

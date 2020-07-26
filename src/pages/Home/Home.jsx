@@ -1,7 +1,7 @@
 import React from 'react'
 import './Home.scss'
 import { SectionButtons } from '../../components/index'
-import { Intro, Retention, Growth, Ads, Seo, Social } from '../index'
+import { Retention, Growth, Ads, Seo, Social } from '../index'
 
 function Home() {
   return (

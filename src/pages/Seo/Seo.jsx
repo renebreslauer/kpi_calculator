@@ -1,6 +1,12 @@
 import React from 'react'
 import './Seo.scss'
-import { Rvr, BounceRate } from '../../components/Calculations/index'
+import {
+  Intro,
+  Rvr,
+  BounceRate,
+  ChurnRate,
+  NPS,
+} from '../../components/Calculations/index'
 import { Accordion } from '../../components/index'
 
 function Seo() {
@@ -8,22 +14,21 @@ function Seo() {
     <>
       <div className="section_wrapper">
         <Accordion allowMultipleOpen>
-          <div label="What is Seo?" isOpen class="accordion_label">
-            <p>
-              These KPI's are all about retaining customers or figuring out why
-              customers are abandoning your funnel.
-            </p>
+          <div label=" " isOpen class="accordion_label">
+            <Intro />
           </div>
           <div label="Rate of Returning" isOpen class="accordion_label">
-            <h3>Rate of Returning Visitors</h3>
             <Rvr />
           </div>
           <div label="Bounce Rate">
-            <h3>Bounce Rate</h3>
             <BounceRate />
           </div>
-          <div label="Customer Churn Rate"></div>
-          <div label="Net Promoter Score (NPS)"></div>
+          <div label="Customer Churn Rate">
+            <ChurnRate />
+          </div>
+          <div label="Net Promoter Score (NPS)">
+            <NPS />
+          </div>
         </Accordion>
       </div>
     </>
