@@ -56,7 +56,10 @@ function Rvr(props) {
   if (parseInt(currentResult) <= 0) {
     resultMessage = <Result message="Enter your metrics to see your results" />
   }
-  if (parseInt(currentResult) == null || NaN) {
+  if (parseInt(currentResult) == null) {
+    resultMessage = <Result message="Enter your metrics to see your results" />
+  }
+  if (!(parseInt(currentResult) > 0) && !(parseInt(currentResult) < 0)) {
     resultMessage = <Result message="Enter your metrics to see your results" />
   }
 
@@ -93,10 +96,12 @@ function Rvr(props) {
                 id="num1"
                 placeholder="Total Visitors"
                 autocomplet="off"
+                pattern="[0-9]*"
               />
               <label>Returning Visitors</label>
               <input
                 type="text"
+                pattern="[0-9]*"
                 id="num2"
                 placeholder="Returning Visitors"
                 autocomplet="off"
@@ -114,48 +119,12 @@ function Rvr(props) {
           <div className="section_wrapper_contents_result">
             <div className="chart_container">
               <ResponsiveBar
+                colors="#fff"
                 data={data}
                 keys={['Percentage']}
                 indexBy="rvr"
-                margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+                margin={{ top: 50, right: 60, bottom: 50, left: 60 }}
                 padding={0.3}
-                defs={[
-                  {
-                    id: 'dots',
-                    type: 'patternDots',
-                    background: 'inherit',
-                    color: '#38bcb2',
-                    size: 4,
-                    padding: 1,
-                    stagger: true,
-                  },
-                  {
-                    id: 'lines',
-                    type: 'patternLines',
-                    background: 'inherit',
-                    color: '#fffff',
-                    rotation: -45,
-                    lineWidth: 6,
-                    spacing: 10,
-                  },
-                ]}
-                fill={[
-                  {
-                    match: {
-                      id: 'fries',
-                    },
-                    id: 'dots',
-                  },
-                  {
-                    match: {
-                      id: 'sandwich',
-                    },
-                    id: 'lines',
-                  },
-                ]}
-                borderColor={{ from: 'color', modifiers: [['brighter', 1.6]] }}
-                axisTop={null}
-                axisRight={null}
                 axisBottom={{
                   tickSize: 5,
                   tickPadding: 5,
@@ -164,44 +133,31 @@ function Rvr(props) {
                   legendPosition: 'middle',
                   legendOffset: 32,
                 }}
-                axisLeft={{
-                  tickSize: 5,
-                  tickPadding: 5,
-                  tickRotation: 0,
-                  legend: 'Rate of Returning Visitors',
-                  legendPosition: 'middle',
-                  legendOffset: -40,
-                }}
                 labelSkipWidth={12}
                 labelSkipHeight={12}
-                labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
-                legends={[
-                  {
-                    dataFrom: 'keys',
-                    anchor: 'bottom-right',
-                    direction: 'column',
-                    justify: false,
-                    translateX: 120,
-                    translateY: 0,
-                    itemsSpacing: 2,
-                    itemWidth: 100,
-                    itemHeight: 20,
-                    itemDirection: 'left-to-right',
-                    itemOpacity: 0.85,
-                    symbolSize: 20,
-                    effects: [
-                      {
-                        on: 'hover',
-                        style: {
-                          itemOpacity: 1,
-                        },
-                      },
-                    ],
-                  },
-                ]}
+                labelTextColor="#000"
                 animate={true}
                 motionStiffness={90}
                 motionDamping={15}
+                theme={{
+                  axis: {
+                    fontSize: '14px',
+                    tickColor: '#eee',
+                    ticks: {
+                      line: {
+                        stroke: '#555555',
+                      },
+                      text: {
+                        fill: '#FFFFFF',
+                      },
+                    },
+                    legend: {
+                      text: {
+                        fill: '#aaaaaa',
+                      },
+                    },
+                  },
+                }}
               />
             </div>
           </div>
@@ -227,6 +183,7 @@ function Rvr(props) {
             valuable than new ones, so a high RVR % is huge.
           </p>
         </div>
+
         <div className="section_wrapper_contents_info_col">
           <h3>What does it indicate?</h3>
           <p>
@@ -236,6 +193,7 @@ function Rvr(props) {
           </p>
           <p>Rate of Returning Visitors</p>
         </div>
+
         <div className="section_wrapper_contents_info_col">
           <h3>Benchmark</h3>
           <p>Over 25% is ideal. If you’re over 40%, you’re killing it.</p>
