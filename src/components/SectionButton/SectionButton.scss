@@ -38,7 +38,8 @@
   color: $neon;
   border-bottom: none;
   &:hover {
-    background-color: $lightestYellow;
+    color: $lightGreen;
+    background-color: $darkerBlue;
   }
 }
 
