@@ -15,16 +15,16 @@
     justify-content: center;
     text-align: center;
     h2 {
-      color: $darkBlue;
+      color: $white;
     }
     p {
-      color: $darkBlue;
+      color: $lightestYellow;
     }
   }
   &_contents_info {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    background: white;
+    background: $medBlue;
     width: 100%;
   }
   &_contents_info_5 {
@@ -54,10 +54,10 @@
 .section_wrapper_contents_info_col {
   padding: 30px 40px 50px 40px;
   p {
-    color: $darkBlue;
+    color: $white;
   }
   h3 {
-    color: $lightGreen;
+    color: $lightestYellow;
   }
 }
 
@@ -94,7 +94,7 @@
       box-shadow: 0px 0px 20px 0px rgba($neon, 0.75);
     }
     &::placeholder {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba($neon, 0.5);
       font-family: 'PT Sans', sans-serif;
       letter-spacing: 0.08rem;
       font-size: 0.7rem;
@@ -103,7 +103,10 @@
 }
 
 .intro_section_wrapper {
-  background-color: $white;
+  background-color: none;
+  border-right: 1px solid rgba($neon, 0.5);
+  border-left: 1px solid rgba($neon, 0.5);
+  border-top: 2px solid rgba($neon, 0.5);
 }
 
 .form_buttons {
@@ -133,8 +136,8 @@
 
 .clear_button {
   background: none;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  color: white;
+  border: 1px solid rgba($neon, 0.5);
+  color: $neon;
   font-family: 'PT Sans', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
@@ -175,7 +178,7 @@
 }
 
 .result_header {
-  color: #6930c3;
+  color: $medBlue;
   font-size: 1.5rem;
   text-align: left;
   margin-left: 80px;
@@ -190,7 +193,6 @@
 
 .wave {
   margin-bottom: -50px;
-
   overflow: hidden;
 }
 

@@ -37,9 +37,9 @@
 }
 
 .SectionButton-list-active {
-  background-color: white;
+  background-color: $lightestYellow;
   color: $medBlue;
   &:hover {
-    background-color: white;
+    background-color: $lightestYellow;
   }
 }
