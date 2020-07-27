@@ -24,7 +24,7 @@
   &_contents_info {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    background: $medBlue;
+    background: $darkerBlue;
     width: 100%;
   }
   &_contents_info_5 {
@@ -103,10 +103,7 @@
 }
 
 .intro_section_wrapper {
-  background-color: none;
-  border-right: 1px solid rgba($neon, 0.5);
-  border-left: 1px solid rgba($neon, 0.5);
-  border-top: 2px solid rgba($neon, 0.5);
+  border-top: 1px solid rgba($neon, 0.5);
 }
 
 .form_buttons {
