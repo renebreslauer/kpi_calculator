@@ -5,14 +5,12 @@
 }
 
 .SectionButton-list-item {
-  background: $darkerBlue;
+  background: $darkestBlue;
   height: 50px;
   width: 150px;
   border: 1px solid rgba($neon, 0.5);
-  border-bottom: 0;
   border-radius: 10px 10px 0 0;
   transition: 0.2s ease-in-out;
-  margin-right: 5px;
   font-family: 'PT Sans', sans-serif;
   color: white;
   text-transform: uppercase;
@@ -36,9 +34,14 @@
 }
 
 .SectionButton-list-active {
-  background-color: $lightestYellow;
-  color: $medBlue;
+  background-color: $darkerBlue;
+  color: $neon;
+  border-bottom: none;
   &:hover {
     background-color: $lightestYellow;
   }
+}
+
+#sectionButton {
+  width: 20%;
 }

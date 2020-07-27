@@ -12,9 +12,7 @@ import { Accordion } from '../../components/index'
 function Retention() {
   return (
     <>
-      <div className="intro_section_wrapper">
-        <Intro />
-      </div>
+      <Intro />
       <div className="section_wrapper">
         <Accordion allowMultipleOpen>
           <div label="Rate of Returning" isOpen class="accordion_label">

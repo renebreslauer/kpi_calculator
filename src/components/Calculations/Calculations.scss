@@ -24,7 +24,12 @@
   &_contents_info {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    background: $darkerBlue;
+    background: rgb(3, 20, 30);
+    background: linear-gradient(
+      0deg,
+      rgba(3, 20, 30, 0) 0%,
+      rgba(3, 20, 30, 0.6) 40%
+    );
     width: 100%;
   }
   &_contents_info_5 {
@@ -103,7 +108,15 @@
 }
 
 .intro_section_wrapper {
-  border-top: 1px solid rgba($neon, 0.5);
+  background: rgb(3, 20, 30);
+  background: linear-gradient(
+    0deg,
+    rgba(3, 20, 30, 0) 0%,
+    rgba(3, 20, 30, 1) 100%
+  );
+  border: 1px solid rgba($neon, 0.5);
+  border-top: none;
+  margin-top: -5px;
 }
 
 .form_buttons {
@@ -189,10 +202,13 @@
 }
 
 .wave {
-  margin-bottom: -50px;
+  margin-bottom: -5px;
   overflow: hidden;
 }
 
+#wave {
+  opacity: 0.6;
+}
 rect {
   text {
     fill: white;

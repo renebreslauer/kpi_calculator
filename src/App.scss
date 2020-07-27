@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,700;0,900;1,400&family=Francois+One&display=swap');
 // Variables
 $white: #ffffff;
 $black: #000000;
@@ -15,6 +15,9 @@ $lightestGreen: #70ee9c;
 $neon: #a2ff00;
 $yellow: #cbff70;
 $lightestYellow: #f0ffd6;
+
+$fontBody: 'PT Sans', sans-serif;
+$fontHeader: 'Chivo', sans-serif;
 
 html {
   scroll-behavior: smooth;
@@ -44,23 +47,24 @@ html {
 p {
   font-size: 0.8rem;
   color: white;
+  font-family: $fontBody;
+  line-height: 1.2rem;
+  letter-spacing: 0.1rem;
 }
 h2 {
   margin: 0 0 0.5rem 0;
-  text-transform: uppercase;
   color: white;
   letter-spacing: 0.2rem;
-  font-weight: 800;
-  font-family: 'Prompt', sans-serif;
+  font-weight: 400;
+  font-family: $fontHeader;
   font-size: 2rem;
 }
 h3 {
   margin: 0.5rem 0;
-  text-transform: uppercase;
   color: #80ffdb;
   letter-spacing: 0.2rem;
-  font-weight: 800;
-  font-family: 'Prompt', sans-serif;
+  font-weight: 400;
+  font-family: $fontHeader;
 }
 body {
   // background: rgb(116, 0, 184);
