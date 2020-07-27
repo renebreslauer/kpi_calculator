@@ -10,13 +10,13 @@
     padding: 5px 0 0 0;
     transition: 0.5s ease-in-out;
     border: 1px solid rgba($neon, 0.5);
-
+    backdrop-filter: blur(5px);
     -webkit-box-shadow: inset 0px 6px 20px -8px rgba($black, 1);
     -moz-box-shadow: inset 0px 6px 20px -8px rgba($black, 1);
     box-shadow: inset 0px 6px 20px -8px rgba($black, 1);
   }
   span {
-    margin: 0px 10px;
+    margin: 0px 20px;
     font-weight: 500;
     font-size: 1rem;
   }
@@ -36,6 +36,9 @@
   border-right: 1px solid rgba($neon, 0.5);
   border-left: 1px solid rgba($neon, 0.5);
   margin: 10px 0;
+  letter-spacing: 0.2rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
   &_text {
     float: left;
     transition: 1s ease-in-out;
