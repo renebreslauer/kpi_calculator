@@ -5,7 +5,7 @@ function Result(props) {
   return (
     <div className="result_message_container">
       <div className="result_image">
-        <img src={props.image} alt="score image" />
+        <img src={props.image} alt="score image" className="result" />
       </div>
       <div className="result_message_header">
         <h3>{props.header}</h3>

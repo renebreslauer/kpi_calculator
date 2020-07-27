@@ -3,6 +3,7 @@ import '../Calculations.scss'
 import { ResponsiveBar } from '@nivo/bar'
 import { Wave } from '../../index'
 import { Result } from '../index'
+import Arrow from '../../../assets/arrow.svg'
 
 function Rvr(props) {
   const [currentResult, setCurrentResult] = useState('')
@@ -51,7 +52,9 @@ function Rvr(props) {
     resultMessage = <Result header="Good" message="Good job" />
   }
   if (parseInt(currentResult) <= 24 && parseInt(currentResult) > 0) {
-    resultMessage = <Result header="Average" message="Average job" />
+    resultMessage = (
+      <Result header="Average" message="Average job" image={Arrow} />
+    )
   }
   if (parseInt(currentResult) <= 0) {
     resultMessage = <Result message="Enter your metrics to see your results" />
@@ -60,7 +63,9 @@ function Rvr(props) {
     resultMessage = <Result message="Enter your metrics to see your results" />
   }
   if (!(parseInt(currentResult) > 0) && !(parseInt(currentResult) < 0)) {
-    resultMessage = <Result message="Enter your metrics to see your results" />
+    resultMessage = (
+      <Result message="Enter your metrics to see your results" image={Arrow} />
+    )
   }
 
   let newResult = parseFloat(currentResult)
