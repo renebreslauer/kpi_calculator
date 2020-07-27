@@ -6,10 +6,10 @@
 }
 
 .SectionButton-list-item {
-  background: #6930c3;
+  background: $medBlue;
   height: 50px;
   width: 150px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba($neon, 0.5);
   border-bottom: 0;
   border-radius: 10px 10px 0 0;
   transition: 0.2s ease-in-out;
@@ -32,13 +32,13 @@
 
 .SectionButton-list-item:hover {
   cursor: pointer;
-  color: #72efdd;
-  background-color: rgba(105, 48, 195, 0.4);
+  color: $neon;
+  background-color: rgba($medBlue, 0.4);
 }
 
 .SectionButton-list-active {
   background-color: white;
-  color: #7400b8;
+  color: $medBlue;
   &:hover {
     background-color: white;
   }

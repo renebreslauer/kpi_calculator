@@ -1,6 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700;800&display=swap');
 
+// Variables
+$white: #ffffff;
+$black: #000000;
+$darkestBlue: #020a0f;
+$darkerBlue: #03141e;
+$darkBlue: #051e2d;
+$medBlue: #06273c;
+$medGreen: #215954;
+$lightGreen: #3b8b6c;
+$lighterGreen: #56bd84;
+$lightestGreen: #70ee9c;
+$neon: #a2ff00;
+$yellow: #cbff70;
+$lightestYellow: #f0ffd6;
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -9,6 +24,17 @@ html {
 * {
   margin: 0;
   font-size: 16px;
+}
+
+#root {
+  background-position: fixed;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(6, 39, 60, 1) 91%
+  );
+  min-height: 100vh;
 }
 
 p {
@@ -33,15 +59,24 @@ h3 {
   font-family: 'Prompt', sans-serif;
 }
 body {
-  background: rgb(116, 0, 184);
-  background: linear-gradient(
-    90deg,
-    rgba(116, 0, 184, 1) 0%,
-    rgba(94, 96, 206, 1) 50%,
-    rgba(116, 0, 184, 1) 100%
-  );
+  // background: rgb(116, 0, 184);
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(116, 0, 184, 1) 0%,
+  //   rgba(94, 96, 206, 1) 50%,
+  //   rgba(116, 0, 184, 1) 100%
+  // );
+  // background: rgb(0, 0, 0);
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(0, 0, 0, 1) 0%,
+  //   rgba(6, 39, 60, 1) 50%,
+  //   rgba(0, 0, 0, 1) 100%
+  // );
+
   background-position: fixed;
   font-family: 'PT Sans', sans-serif;
+  height: 100vh;
 }
 
 .accordion_content {

@@ -124,7 +124,7 @@ function Rvr(props) {
           <div className="section_wrapper_contents_result">
             <div className="chart_container">
               <ResponsiveBar
-                colors="#fff"
+                colors="#A2FF00"
                 data={data}
                 keys={['Percentage']}
                 indexBy="rvr"

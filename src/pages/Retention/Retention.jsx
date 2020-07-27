@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import './Retention.scss'
 import {
   Intro,
@@ -13,11 +12,11 @@ import { Accordion } from '../../components/index'
 function Retention() {
   return (
     <>
+      <div className="intro_section_wrapper">
+        <Intro />
+      </div>
       <div className="section_wrapper">
         <Accordion allowMultipleOpen>
-          <div label=" " isOpen class="accordion_label">
-            <Intro />
-          </div>
           <div label="Rate of Returning" isOpen class="accordion_label">
             <Rvr />
           </div>
