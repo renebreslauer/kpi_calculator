@@ -82,7 +82,7 @@
     text-align: center;
     width: 100%;
     padding: 20px 0px;
-    border-radius: 10px;
+    border-radius: 0px;
     outline: none;
     border: 1px solid rgba($neon, 0.5);
     background: none;
@@ -91,14 +91,14 @@
     transition: 0.3s ease-in-out;
 
     &:focus {
-      -webkit-box-shadow: 0px 0px 20px 0px rgba($neon, 0.75);
-      -moz-box-shadow: 0px 0px 20px 0px rgba($neon, 0.75);
-      box-shadow: 0px 0px 20px 0px rgba($neon, 0.75);
+      -webkit-box-shadow: 0px 0px 10px 0px rgba($neon, 0.75);
+      -moz-box-shadow: 0px 0px 10px 0px rgba($neon, 0.75);
+      box-shadow: 0px 0px 10px 0px rgba($neon, 0.75);
     }
     &:hover {
-      -webkit-box-shadow: 0px 0px 20px 0px rgba($neon, 0.75);
-      -moz-box-shadow: 0px 0px 20px 0px rgba($neon, 0.75);
-      box-shadow: 0px 0px 20px 0px rgba($neon, 0.75);
+      -webkit-box-shadow: 0px 0px 10px 0px rgba($neon, 0.75);
+      -moz-box-shadow: 0px 0px 10px 0px rgba($neon, 0.75);
+      box-shadow: 0px 0px 10px 0px rgba($neon, 0.75);
     }
     &::placeholder {
       color: rgba($neon, 0.5);
@@ -128,14 +128,14 @@
   button {
     margin: 20px 0;
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: 0;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 
     &:hover {
-      -webkit-box-shadow: 0px 0px 20px 0px rgba($neon, 0.75);
-      -moz-box-shadow: 0px 0px 20px 0px rgba($neon, 0.75);
-      box-shadow: 0px 0px 20px 0px rgba($neon, 0.75);
+      -webkit-box-shadow: 0px 0px 10px 0px rgba($neon, 0.75);
+      -moz-box-shadow: 0px 0px 10px 0px rgba($neon, 0.75);
+      box-shadow: 0px 0px 10px 0px rgba($neon, 0.75);
     }
     &:focus {
       outline: none;

@@ -12,11 +12,9 @@ import { Accordion } from '../../components/index'
 function Growth() {
   return (
     <>
+      <Intro />
       <div className="section_wrapper">
         <Accordion allowMultipleOpen>
-          <div label=" " isOpen class="accordion_label">
-            <Intro />
-          </div>
           <div label="Rate of Returning" isOpen class="accordion_label">
             <Rvr />
           </div>
